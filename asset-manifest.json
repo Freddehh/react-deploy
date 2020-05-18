@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-deploy/static/css/main.d0dcf7e2.chunk.css",
+    "main.js": "/react-deploy/static/js/main.fabaae2b.chunk.js",
+    "main.js.map": "/react-deploy/static/js/main.fabaae2b.chunk.js.map",
+    "runtime-main.js": "/react-deploy/static/js/runtime-main.8e4be4b4.js",
+    "runtime-main.js.map": "/react-deploy/static/js/runtime-main.8e4be4b4.js.map",
+    "static/js/2.d6d43cce.chunk.js": "/react-deploy/static/js/2.d6d43cce.chunk.js",
+    "static/js/2.d6d43cce.chunk.js.map": "/react-deploy/static/js/2.d6d43cce.chunk.js.map",
+    "index.html": "/react-deploy/index.html",
+    "precache-manifest.864499b3e45016187a63b6b68a77efeb.js": "/react-deploy/precache-manifest.864499b3e45016187a63b6b68a77efeb.js",
+    "service-worker.js": "/react-deploy/service-worker.js",
+    "static/css/main.d0dcf7e2.chunk.css.map": "/react-deploy/static/css/main.d0dcf7e2.chunk.css.map",
+    "static/js/2.d6d43cce.chunk.js.LICENSE.txt": "/react-deploy/static/js/2.d6d43cce.chunk.js.LICENSE.txt",
+    "static/media/fredrik_eklund.jpg": "/react-deploy/static/media/fredrik_eklund.2d6cff59.jpg",
+    "static/media/logo.svg": "/react-deploy/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8e4be4b4.js",
+    "static/js/2.d6d43cce.chunk.js",
+    "static/css/main.d0dcf7e2.chunk.css",
+    "static/js/main.fabaae2b.chunk.js"
+  ]
+}
