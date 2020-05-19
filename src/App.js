@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
+import SearchBar from './SearchBar';
+import Header from './Header';
+import FreeChampRotation from './FreeChampRotation'
 import testImage from './img/fredrik_eklund.jpg';
 import './App.css';
+import { render } from '@testing-library/react';
 
 function App() {
 
@@ -13,7 +16,6 @@ useEffect(() => {
   getApiRequest();
 }, []);
 
-
 const getApiRequest = async () => {
   console.log("1");
   const response = await fetch("https://cors-anywhere.herokuapp.com/https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/this%20is%20yoloq?api_key=RGAPI-810f9b48-50c8-4e25-9d2d-a45e4e807cef");
@@ -22,14 +24,12 @@ const getApiRequest = async () => {
   console.log("Hej");
 }
 
-
   return (
     <div className="App">
-     <h1>MY react app lel</h1>
-     <h2>Fredrik Eklundh, Rasmus Öberg</h2>
-      <img src={testImage} alt="test picture"/>
+     <Header/>
+     <SearchBar/>
+     <FreeChampRotation/>
     </div>
   );
-}
-
+} 
 export default App;
