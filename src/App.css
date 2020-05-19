@@ -1,9 +1,17 @@
 .App {
   text-align: center;
+  background-color: coral;
 }
 
-body{
-background-color: orange;
+.champRotation{
+  border: 2px solid black;
+  height: 600px;
+  width: 400px;
+  background-color: cornsilk;
+}
+
+.serverChoice{
+  margin-top: 16px;
 }
 
 .App-logo {
