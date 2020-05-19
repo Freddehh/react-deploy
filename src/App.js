@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
+import SearchBar from './SearchBar';
+import Header from './Header';
+import FreeChampRotation from './FreeChampRotation'
 import testImage from './img/fredrik_eklund.jpg';
 import './App.css';
 import championsFile from './data/champions.json';
+
 
 function App() {
 
@@ -30,12 +33,14 @@ useEffect(() => {
   }
 }, []);
 
+
 let summonerName = "thisisyoloq";
 let api_key = "RGAPI-a86283a2-57fd-491e-af18-0486f20c37c2";
 const getSummonerIDFromName = async () => {
   //console.log("first");
   const response = await fetch
   ("https://cors-anywhere.herokuapp.com/https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key);
+
   const data = await response.json();
   console.log(data);
   summonerID = data.id;
@@ -68,14 +73,12 @@ const getChampionMasteryFromID = async () => {
   
 }
 
-
   return (
     <div className="App">
-     <h1>MY react app lel</h1>
-     <h2>Fredrik Eklundh, Rasmus Öberg</h2>
-      <img src={testImage} alt="test picture"/>
+     <Header/>
+     <SearchBar/>
+     <FreeChampRotation/>
     </div>
   );
-}
-
+} 
 export default App;
