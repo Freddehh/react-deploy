@@ -26,8 +26,8 @@ useEffect(() => {
   let rank10 = getLeaderboards(); //10highest ranked players
 }, []);
 
-let summonerName = "thisisyoloq";
-let api_key = "RGAPI-7cbec2bb-e82c-43ae-8f12-74e66ae89481";
+let summonerName = "1hithoodi";
+let api_key = "RGAPI-92fb59f6-a5a5-44ae-b24c-a239d7711a2b";
 let server = "euw1";
 
 const getSummonerFromName = async (champMap) => {
@@ -161,10 +161,10 @@ const getChampionMasteryFromID = async (summID) => {
      <Header/>
      <SearchBar/>
      <div className="champRotationChallengerLadder">
-     <FreeChampRotation/>
+     <FreeChampRotation name={summonerName}/>
      <ChallengerLadders/>
      </div>
-     <div classname="secondPage">
+     <div className="secondPage">
      <MasteryPoints/>
      <LastSearches/>
      <Profile/>
