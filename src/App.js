@@ -14,28 +14,31 @@ import Profile from './Profile';
 
 
 function App() {
-let summonerID;
-let champArray = [];
-let test;
-let bool = false;
 
 let textInput = React.createRef();
 let reigon = React.createRef();
-
 const [showFirstPage, setShowFirstPage] = useState(false);
 const [showSecondPage, setShowSecondPage] = useState(true);
+  let summonerID;
+  let champArray = [];
+  let test;
+  let freeRotation;
+  let [champs, setChamps] = useState('');
+  let bool = false;
+
+
 
 useEffect(() => {
   let champMap = champsToMap(); //all champs with id+name in map
   let top10mastery = getSummonerFromName(champMap);
-  let freeRotation = getFreeRotation(champMap); //15 free-to-play champs
+  freeRotation = getFreeRotation(champMap); //15 free-to-play champs
   console.log(freeRotation);
   console.log(top10mastery);
   let rank10 = getLeaderboards(); //10highest ranked players
 }, []);
 
 let summonerName = "1hithoodi";
-let api_key = "RGAPI-92fb59f6-a5a5-44ae-b24c-a239d7711a2b";
+let api_key = "RGAPI-1d8365af-3ee6-43a8-8b1a-d47c723c7387";
 let server = "euw1";
 
 let summonerName = "1hithoodi";
@@ -44,10 +47,19 @@ let server = "euw1";
  
 const getSummonerFromName = async (champMap) => {
   //fetches the accountinfo/ids for given summoner --> todo = dynamic serverselection
-  const response = await fetch
+   const response = await fetch
   ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key);
   const data = await response.json();
-  console.log(data);
+
+  fetch("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key)
+  .then(res => res.json())
+  .then(id => {
+    console.log(1000, id);
+  })
+
+  //console.log(data); 
+
+  //fetch('https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key')
   let accountID = data.accountId;
 
   //fetches match history information  ==>> change endindex to fetch more games
@@ -126,19 +138,21 @@ const getLeaderboards = async () => {
 //fetches current free champ rotation
 const getFreeRotation = async (champMap) =>{
   let freeChampMap = new Map();
+  let arr = [];
   const response = await fetch("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/platform/v3/champion-rotations?api_key="+api_key);
   const rotation = await response.json();
   let freeChamps = rotation.freeChampionIds;
-  console.log(freeChamps);
-  console.log(freeChamps.length);
-  console.log(champMap);
+  console.log('freechamps', freeChamps);
+  console.log('champmap', champMap);
   for(let i = 0; i < freeChamps.length; i++){
     let pos = freeChamps[i];
     let a = pos.toString();
     let currentChamp = champMap.get(a);
     console.log(currentChamp);
     freeChampMap.set(a, currentChamp);
+    arr.push(currentChamp);
   }
+  setChamps(champs = arr);
   return freeChampMap;
 }
 
@@ -234,7 +248,6 @@ function swapPage(){
 
      <LastSearches/>
        </div>}
-     
     </div>
   );
 } 
