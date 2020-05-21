@@ -19,14 +19,12 @@ let textInput = React.createRef();
 let reigon = React.createRef();
 const [showFirstPage, setShowFirstPage] = useState(false);
 const [showSecondPage, setShowSecondPage] = useState(true);
-  let summonerID;
-  let champArray = [];
-  let test;
-  let freeRotation;
-  let [champs, setChamps] = useState('');
-  let bool = false;
-
-
+let summonerID;
+let champArray = [];
+let test;
+let freeRotation;
+let [champs, setChamps] = useState('');
+let bool = false;
 
 useEffect(() => {
   let champMap = champsToMap(); //all champs with id+name in map
@@ -41,10 +39,6 @@ let summonerName = "1hithoodi";
 let api_key = "RGAPI-1d8365af-3ee6-43a8-8b1a-d47c723c7387";
 let server = "euw1";
 
-let summonerName = "1hithoodi";
-let api_key = "RGAPI-76f5594e-939e-4213-8599-c385e493c41b";
-let server = "euw1";
- 
 const getSummonerFromName = async (champMap) => {
   //fetches the accountinfo/ids for given summoner --> todo = dynamic serverselection
    const response = await fetch
@@ -205,8 +199,7 @@ function swapPage(){
   return (
     <div className="App">
      <Header/>
-    
-
+  
      <div className="SearchBar">
     <Navbar bg="dark" variant="dark">
     <Navbar.Brand>Project</Navbar.Brand>
@@ -235,11 +228,9 @@ function swapPage(){
 
 
      {showSecondPage && <div className="champRotationChallengerLadder">
-     <FreeChampRotation/>
+     <FreeChampRotation name={champs}/>
      <ChallengerLadders/>
        </div>}
-
-   
      
      {showFirstPage && <div className="secondPage">
       <MasteryPoints/>

@@ -9,7 +9,7 @@ import urgot from './img/Urgot_0.jpg';
 function FreeChampRotation(props){
 
 //namn lp win lose 
-console.log(55555555, props.name[0]);
+//console.log(55555555, props.name[0]);
 let champs = [];
 let urls = [];
 for(let i = 0; i < props.name.length; i++){
