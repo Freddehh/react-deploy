@@ -5,6 +5,11 @@ import FreeChampRotation from './FreeChampRotation'
 import testImage from './img/fredrik_eklund.jpg';
 import './App.css';
 import championsFile from './data/champions.json';
+import ChallengerLadders from './ChallengerLadders';
+import MasteryPoints from './MasteryPoints';
+import LastSearches from './LastSearches';
+import Profile from './Profile';
+
 
 
 function App() {
@@ -77,7 +82,16 @@ const getChampionMasteryFromID = async () => {
     <div className="App">
      <Header/>
      <SearchBar/>
+     <div className="champRotationChallengerLadder">
      <FreeChampRotation/>
+     <ChallengerLadders/>
+     </div>
+     <div classname="secondPage">
+     <MasteryPoints/>
+     <LastSearches/>
+     <Profile/>
+     </div>
+     
     </div>
   );
 } 

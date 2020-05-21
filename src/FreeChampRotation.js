@@ -12,6 +12,11 @@ return(
 
     <div className="champRotation">
         <Container>
+        <Row>
+            <h2 className="h2FreeChamp">
+                Free champion rotation
+            </h2>
+        </Row>
   <Row>
     <Col>
     <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Aatrox.png?fbclid=IwAR3Js5deXHJL7jP2bV-jBydR1JfKBZ9fnWd_ilpi_hoAmcsw2xiEHxKMB4A" width="80px" height="80px" alt="test picture"/>
