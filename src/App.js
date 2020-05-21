@@ -34,9 +34,15 @@ useEffect(() => {
   let rank10 = getLeaderboards(); //10highest ranked players
 }, []);
 
+<<<<<<< HEAD
 useEffect(() => {
   let test123 = "test123";
 }, []);
+=======
+let summonerName = "1hithoodi";
+let api_key = "RGAPI-92fb59f6-a5a5-44ae-b24c-a239d7711a2b";
+let server = "euw1";
+>>>>>>> 90297bd60c72be3fed88ea17c28f25a249905aea
 
 let summonerName = "1hithoodi";
 let api_key = "RGAPI-76f5594e-939e-4213-8599-c385e493c41b";
@@ -191,6 +197,7 @@ function swapPage(){
   return (
     <div className="App">
      <Header/>
+<<<<<<< HEAD
     
 
      <div className="SearchBar">
@@ -230,6 +237,16 @@ function swapPage(){
      {showFirstPage && <div className="secondPage">
       <MasteryPoints/>
      
+=======
+     <SearchBar/>
+     <div className="champRotationChallengerLadder">
+     <FreeChampRotation name={summonerName}/>
+     <ChallengerLadders/>
+     </div>
+     <div className="secondPage">
+     <MasteryPoints/>
+     <LastSearches/>
+>>>>>>> 90297bd60c72be3fed88ea17c28f25a249905aea
      <Profile/>
 
      <LastSearches/>
