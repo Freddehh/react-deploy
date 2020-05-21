@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import './App.css';
+import app from './App.js';
 import { render } from '@testing-library/react';
 
 
@@ -11,11 +12,13 @@ class SearchBar extends React.Component{
     this.addLastSearch = this.addLastSearch.bind(this); 
   
   }
-  
+
 addLastSearch() {
   var search = this.search.value;
   console.log(search);
   
+  
+
 }
 render(){
   return (

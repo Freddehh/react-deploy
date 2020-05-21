@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
 import SearchBar from './SearchBar';
 import Header from './Header';
 import FreeChampRotation from './FreeChampRotation'
@@ -16,6 +17,13 @@ function App() {
 let summonerID;
 let champArray = [];
 let test;
+let bool = false;
+
+let textInput = React.createRef();
+let reigon = React.createRef();
+
+const [showFirstPage, setShowFirstPage] = useState(false);
+const [showSecondPage, setShowSecondPage] = useState(true);
 
 useEffect(() => {
   let champMap = champsToMap(); //all champs with id+name in map
@@ -26,10 +34,14 @@ useEffect(() => {
   let rank10 = getLeaderboards(); //10highest ranked players
 }, []);
 
-let summonerName = "thisisyoloq";
-let api_key = "RGAPI-7cbec2bb-e82c-43ae-8f12-74e66ae89481";
-let server = "euw1";
+useEffect(() => {
+  let test123 = "test123";
+}, []);
 
+let summonerName = "1hithoodi";
+let api_key = "RGAPI-76f5594e-939e-4213-8599-c385e493c41b";
+let server = "euw1";
+ 
 const getSummonerFromName = async (champMap) => {
   //fetches the accountinfo/ids for given summoner --> todo = dynamic serverselection
   const response = await fetch
@@ -155,20 +167,73 @@ const getChampionMasteryFromID = async (summID) => {
   console.log(allChampions[0].championPoints);
 }
 */
+//  <button onClick={() => setShowSecondPage(!showSecondPage)}>First page GTFO</button>
+//  <button onClick={swapPage} onClick="">Second </button>
+
+function swapPage(){
+
+  if(bool != true){
+  setShowSecondPage(!showSecondPage);
+  setShowFirstPage(!showFirstPage);
+  console.log("insde if statment")
+  console.log(bool)
+  }
+
+  bool = true;
+  console.log(bool)
+
+  console.log(textInput.current.value);
+  console.log(reigon.current.value);
+
+  textInput.current.value = "";
+}
 
   return (
     <div className="App">
      <Header/>
-     <SearchBar/>
-     <div className="champRotationChallengerLadder">
+    
+
+     <div className="SearchBar">
+    <Navbar bg="dark" variant="dark">
+    <Navbar.Brand>Project</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href=".">Home page</Nav.Link>
+      <Nav.Link href="https://eune.leagueoflegends.com/en-pl/">League of legends</Nav.Link>
+      <Nav.Link href="https://developer.riotgames.com/apis">League API</Nav.Link>
+    </Nav>
+
+    <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Control as="select" className="serverChoice" ref={reigon}>
+      <option>EUW</option>
+      <option>EUNE</option>
+      <option>NA</option>
+      <option>KR</option>
+      <option>BR</option>
+    </Form.Control>
+  </Form.Group> 
+
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" ref={textInput} name="search"/>
+      <Button variant="outline-info" onClick={swapPage}>Search</Button>
+    </Form>
+  </Navbar>
+    </div>
+
+
+     {showSecondPage && <div className="champRotationChallengerLadder">
      <FreeChampRotation/>
      <ChallengerLadders/>
-     </div>
-     <div classname="secondPage">
-     <MasteryPoints/>
-     <LastSearches/>
+       </div>}
+
+   
+     
+     {showFirstPage && <div className="secondPage">
+      <MasteryPoints/>
+     
      <Profile/>
-     </div>
+
+     <LastSearches/>
+       </div>}
      
     </div>
   );
