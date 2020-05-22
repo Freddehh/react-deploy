@@ -8,8 +8,6 @@ import './App.css';
 
 function Header() {
 
-
-
     return (
         <div className="Header">
             <Container fluid="md">
@@ -21,9 +19,7 @@ function Header() {
                     </Col>
                 </Row>
             </Container>
-
         </div>
     );
 }
-
 export default Header;
