@@ -25,7 +25,7 @@ return(
         <Container>
         <Row>
             <h2 className="h2FreeChamp">
-              {props.name}
+              <p>Free this week!</p>
             </h2>
         </Row>
   <Row>

@@ -26,14 +26,23 @@ let freeRotation;
 let [champs, setChamps] = useState('');
 let [lastSearch, setLastSearch] = useState('');
 let [topTenMastery, setTopTenMastery] = useState('');
-
 let localStorage = window.localStorage;
 let searchArr;
 let pageSwap;
+let [challengers, setChallengers] = useState('');
+let [stats, setStats] = useState('');
+
+
+
+
+let summonerName = "thisisyoloq";
+let api_key = "RGAPI-f4a619c1-ba69-46dd-8f26-ac0f699ddde8";
+let server = "euw1";
 
 useEffect(() => {
   let champMap = champsToMap(); //all champs with id+name in map
   let top10mastery = getSummonerFromName(champMap);
+  //getMatchHistory(summonerName)
   freeRotation = getFreeRotation(champMap); //15 free-to-play champs
   console.log(freeRotation);
   console.log(top10mastery);
@@ -41,13 +50,73 @@ useEffect(() => {
   localStorage.removeItem('pageSwap');
 }, []);
 
+
 let summonerName = "1hithoodi";
 let api_key = "RGAPI-84e0cf45-d0f6-42a9-862b-dd4e4a9b4859";
 let server = "euw1";
 
+
+const getMatchHistory = async () => {
+  let summonerSearched = textInput.current.value;
+  console.log(summonerSearched)
+  const response = await fetch
+  ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerSearched+"?api_key="+api_key);
+  const data = await response.json();
+
+  fetch("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerSearched+"?api_key="+api_key)
+  .then(res => res.json())
+  .then(id => {
+    console.log(1000, id);
+  })
+
+  console.log('sök === ', summonerSearched)
+
+  let accountID = data.accountId;
+
+  //fetches match history information  ==>> change endindex to fetch more games
+  const response2 = await fetch
+  ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/match/v4/matchlists/by-account/"+accountID+"?endIndex=1&api_key="+api_key);
+  const data1 = await response2.json();
+  console.log(data1)
+  let matches = data1.matches;
+  console.log(matches)
+  let gameId = matches[0].gameId;
+ 
+  //fetches specific match history
+  const response3 = await fetch
+  ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key);
+  const data2 = await response3.json();
+  console.log(data2);
+  let arrayOfPlayers = data2.participantIdentities;
+  let playerPosition;
+  for(let i = 0; i < arrayOfPlayers.length; i++){
+    if(accountID === arrayOfPlayers[i].player.accountId){
+      playerPosition = i;
+      console.log(arrayOfPlayers[i].player.accountId, accountID);
+      console.log(i);
+    }
+    console.log(arrayOfPlayers[i].player.accountId)
+  }
+  console.log(arrayOfPlayers);
+  let stats = data2.participants[playerPosition].stats;
+  console.log(stats);
+  let kda = (stats.assists + stats.kills) / stats.deaths;
+  let statsObj = {kills:stats.kills, deaths: stats.deaths, assists:stats.assists, kda:kda, fb:stats.firstBloodKill, fbAssist:stats.firstBloodAssist, level:stats.champLevel,
+      goldEarned:stats.goldEarned, goldSpent:stats.goldSpent, fbInhib:stats.firstInhibitorKill, longestAlive:stats.longestTimeSpentLiving, totalDmg:stats.totalDamageDealt, 
+      totalDmgchamp:stats.totalDamageDealtToChampions, amountOfCC:stats.timeCCingOthers, lengthOfCC:stats.totalTimeCrowdControlDealt, totalHeal:stats.totalHeal, 
+      dobleKills:stats.doubleKills, triple:stats.tripleKills, quadra:stats.quadraKills, penta:stats.pentaKills, sightWardsBought:stats.sightWardsBoughtInGame, 
+      killingSprees:stats.killingSprees, multiKill:stats.largestMultiKill, largestKillingSpree:stats.largestKillingSpree, cs:stats.totalMinionsKilled, 
+      visionWardsBought:stats.visionWardsBoughtInGame};
+  console.log(statsObj);
+  setStats(stats = statsObj);
+
+  //textInput.current.value = "";
+  //return statsObj;
+}
+
 const getSummonerFromName = async (champMap) => {
   //fetches the accountinfo/ids for given summoner --> todo = dynamic serverselection
-   const response = await fetch
+  const response = await fetch
   ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key);
   const data = await response.json();
 
@@ -57,11 +126,31 @@ const getSummonerFromName = async (champMap) => {
     console.log(1000, id);
   })
 
+  //fetches the mastery info on all champs for given summoner  --> todo = dynamic serverselection
+  let top10mastery = [];
+  const response1 = await fetch
+  ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+data.id+"?api_key="+api_key);
+  const allChampions = await response1.json();
+  for(let i = 0; i < 10; i++){
+    let currentId = allChampions[i].championId;
+    let currentPts = allChampions[i].championPoints;
+    let currentLevel = allChampions[i].championLevel;
+    let id = currentId.toString();
+    let name = champMap.get(id);
+    let champion = {name:name, points:currentPts, level:currentLevel};
+    top10mastery.push(champion);
+    console.log(currentId, currentPts, name, currentLevel);
+  }
+  setTopTenMastery(topTenMastery = top10mastery);
+  return top10mastery; 
+
   //console.log(data); 
 
   //fetch('https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key')
-  let accountID = data.accountId;
+  //let accountID = data.accountId;
 
+
+  /*
   //fetches match history information  ==>> change endindex to fetch more games
   const response2 = await fetch
   ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/match/v4/matchlists/by-account/"+accountID+"?endIndex=1&api_key="+api_key);
@@ -95,25 +184,7 @@ const getSummonerFromName = async (champMap) => {
       killingSprees:stats.killingSprees, multiKill:stats.largestMultiKill, largestKillingSpree:stats.largestKillingSpree, cs:stats.totalMinionsKilled, 
       visionWardsBought:stats.visionWardsBoughtInGame};
   console.log(statsObj);
-
-  //fetches the mastery info on all champs for given summoner  --> todo = dynamic serverselection
-  let top10mastery = [];
-  const response1 = await fetch
-  ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+data.id+"?api_key="+api_key);
-  const allChampions = await response1.json();
-  for(let i = 0; i < 10; i++){
-    let currentId = allChampions[i].championId;
-    let currentPts = allChampions[i].championPoints;
-    let currentLevel = allChampions[i].championLevel;
-    let id = currentId.toString();
-    let name = champMap.get(id);
-    let champion = {name:name, points:currentPts, level:currentLevel};
-    top10mastery.push(champion);
-    console.log(currentId, currentPts, name, currentLevel);
-  }
-  let a = [top10mastery, statsObj];
-  setTopTenMastery(topTenMastery = top10mastery);
-  return top10mastery; 
+  */
 }
 
 //fetches current leaderboards for given server --> todo = dynamic serverselection
@@ -133,6 +204,7 @@ const getLeaderboards = async () => {
     let player = {name:name, lp:lp, wins:wins, losses:losses, rank:rank};
     arr2.push(player);
   }
+  setChallengers(challengers = arr2);
   return arr2;
 }
 
@@ -201,10 +273,8 @@ function swapPage(){
   localStorage.setItem("pageSwap", "false");
 
   console.log(reigon.current.value);
-
-  textInput.current.value = "";
-
   setLastSearch(lastSearch = searchArr);
+
 }
 
   return (
@@ -232,7 +302,10 @@ function swapPage(){
 
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" ref={textInput} name="search"/>
-      <Button variant="outline-info" onClick={swapPage}>Search</Button>
+      <Button variant="outline-info" onClick={() => {
+          swapPage();
+          getMatchHistory();
+        }}>Search</Button>
     </Form>
   </Navbar>
     </div>
@@ -240,15 +313,18 @@ function swapPage(){
 
      {showSecondPage && <div className="champRotationChallengerLadder">
      <FreeChampRotation name={champs}/>
-     <ChallengerLadders/>
+     <ChallengerLadders name={challengers}/>
        </div>}
      
      {showFirstPage && <div className="secondPage">
       <MasteryPoints name={topTenMastery}/>
      
-     <Profile/>
+     <Profile name={stats}/>
 
      <LastSearches name={lastSearch}/>
+
+     <LastSearches />
+
        </div>}
     </div>
   );
