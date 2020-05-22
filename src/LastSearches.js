@@ -1,56 +1,62 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import './App.css';
 import { render } from '@testing-library/react';
 
 
-class LastSearches extends React.Component {
-    constructor(props) {
-        super(props);
-        this.updateLastSearch = this.updateLastSearch.bind(this);
-
-    }
-
-    updateLastSearch() {
-        var search = this.search.value;
-        console.log(search);
-
-    }
-    render() {
-        return (
-            <div className="LastSearchesDiv">
-                <Container className="LastSearches">
+function LastSearches(props){
+    return (
+        <div className="LastSearchesDiv">
+            <Container className="LastSearches">
                 <Row>
-                    <h6>Last 5 searches</h6>
+                    <h6>Last 10 searches</h6>
                 </Row>
-                <br/>
-                    <Row>
-                        THIS IS YOLOQ
+                <br />
+                <Row>
+                    {props.name[0]}
                     </Row>
-                   <br/>
-                    <Row>
-                        1hithoodi
+                <br />
+                <Row>
+                    {props.name[1]}
                     </Row>
-                    <br/>
-                    <Row>
-                        YEEET69
+                <br />
+                <Row>
+                    {props.name[2]}
                     </Row>
-                    <br/>
-                    <Row>
-                        PLACEHOLDER
+                <br />
+                <Row>
+                    {props.name[3]}
                     </Row>
-                    <br/>
-                    <Row>
-                        PLACEHOLDER
+                <br />
+                <Row>
+                    {props.name[4]}
                     </Row>
-                    
+                    <br />
+                <Row>
+                    {props.name[5]}
+                    </Row>
+                    <br />
+                <Row>
+                    {props.name[6]}
+                    </Row>
+                    <br />
+                <Row>
+                    {props.name[7]}
+                    </Row>
+                    <br />
+                <Row>
+                    {props.name[8]}
+                    </Row>
+                    <br />
+                <Row>
+                    {props.name[9]}
+                    </Row>
+                    <br />
             </Container>
-                   
-            </div>
-        );
-    }
+
+        </div>
+    );
+
 }
 export default LastSearches;

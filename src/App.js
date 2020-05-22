@@ -24,9 +24,15 @@ let champArray = [];
 let test;
 let freeRotation;
 let [champs, setChamps] = useState('');
+let [lastSearch, setLastSearch] = useState('');
+let [topTenMastery, setTopTenMastery] = useState('');
+let localStorage = window.localStorage;
+let searchArr;
+let pageSwap;
 let [challengers, setChallengers] = useState('');
 let [stats, setStats] = useState('');
-let bool = false;
+
+
 
 
 let summonerName = "thisisyoloq";
@@ -41,7 +47,13 @@ useEffect(() => {
   console.log(freeRotation);
   console.log(top10mastery);
   let rank10 = getLeaderboards(); //10highest ranked players
+  localStorage.removeItem('pageSwap');
 }, []);
+
+
+let summonerName = "1hithoodi";
+let api_key = "RGAPI-84e0cf45-d0f6-42a9-862b-dd4e4a9b4859";
+let server = "euw1";
 
 
 const getMatchHistory = async () => {
@@ -129,6 +141,7 @@ const getSummonerFromName = async (champMap) => {
     top10mastery.push(champion);
     console.log(currentId, currentPts, name, currentLevel);
   }
+  setTopTenMastery(topTenMastery = top10mastery);
   return top10mastery; 
 
   //console.log(data); 
@@ -230,36 +243,38 @@ function champsToMap(){
   return champMap;
 }
 
-/*
-//fetches champ mastery levels from given summoner
-const getChampionMasteryFromID = async (summID) => {
-  const response1 = await fetch
-  ("https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/AqxFkaEqZ_iL_dYU4KKB3NCRGjhK8LxgDu4J3cKrS2QH8YA?api_key="+api_key);
-  const allChampions = await response1.json();
-  console.log("inside mastery")
-  console.log(allChampions);
-  console.log(allChampions[0].championPoints);
-}
-*/
-//  <button onClick={() => setShowSecondPage(!showSecondPage)}>First page GTFO</button>
-//  <button onClick={swapPage} onClick="">Second </button>
-
 function swapPage(){
-
-  if(bool != true){
-  setShowSecondPage(!showSecondPage);
-  setShowFirstPage(!showFirstPage);
-  console.log("insde if statment")
-  console.log(bool)
+  
+  if(localStorage.getItem("search") != null){
+    searchArr = JSON.parse(localStorage.getItem("search"));
+    console.log("hämtat array")
+  }else{
+    console.log("array finns inte")
+    searchArr = [];
   }
 
-  bool = true;
-  console.log(bool)
+  if(localStorage.getItem("pageSwap") != null){
+    pageSwap = localStorage.getItem("pageSwap");
+  }else{
+    pageSwap = "true";
+  }
 
-  console.log(textInput.current.value);
+  searchArr.unshift(textInput.current.value);
+
+  if(pageSwap == "true"){
+    setShowSecondPage(!showSecondPage);
+    setShowFirstPage(!showFirstPage);
+  }
+
+  console.log("LÄNGD === ", searchArr.length)
+  console.log("Saker i array ===", searchArr);
+
+  localStorage.setItem("search", JSON.stringify(searchArr));
+  localStorage.setItem("pageSwap", "false");
+
   console.log(reigon.current.value);
+  setLastSearch(lastSearch = searchArr);
 
-  
 }
 
   return (
@@ -302,11 +317,14 @@ function swapPage(){
        </div>}
      
      {showFirstPage && <div className="secondPage">
-      <MasteryPoints/>
+      <MasteryPoints name={topTenMastery}/>
      
      <Profile name={stats}/>
 
+     <LastSearches name={lastSearch}/>
+
      <LastSearches />
+
        </div>}
     </div>
   );
