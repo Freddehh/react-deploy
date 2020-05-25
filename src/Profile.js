@@ -8,179 +8,131 @@ import { render } from '@testing-library/react';
 
 
 //25 saker
+function Profile(props) {
 
-class Profile extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+console.log("inside  profile == ", props.name)
+    return (
+        <div className="ProfileDiv">
+            <Container className="Profile">
+                <Row>
+                    <h3>{props.name.name} Level {props.name.sumLevel}</h3>
+                </Row>
+                <Row>
+                    <h4>Last game stats</h4>
+                </Row>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>KILLS: {props.name.kills}</h6>
+                    </Col>
+                    <Col>
+                    <h6>DEATHS: {props.name.deaths}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>ASSISTS: {props.name.assists}</h6>
+                    </Col>
+                    <Col>
+                    <h6>KDA: {props.name.kda}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>CS: {props.name.cs}</h6>
+                    </Col>
+                    <Col>
+                    <h6>LEVEL: {props.name.level}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>CC'ed OTHERS: {props.name.amountOfCC} times</h6>
+                    </Col>
+                    <Col>
+                    <h6>LENGTH OF CC: {props.name.lengthOfCC} seconds</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>GOLD EARNED: {props.name.goldEarned} $</h6>
+                    </Col>
+                    <Col>
+                    <h6>GOLD SPENT: {props.name.goldSpent} $</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>LARGEST MULTIKILL: {props.name.multiKill}</h6>
+                    </Col>
+                    <Col>
+                    <h6>LARGEST KILLING SPREE: {props.name.largestKillingSpree}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>LONGEST TIME ALIVE: {props.name.longestAlive}</h6>
+                    </Col>
+                    <Col>
+                    <h6>DOUBLE KILLS: {props.name.doubleKills}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>TRIPLE KILLS: {props.name.triple}</h6>
+                    </Col>
+                    <Col>
+                    <h6>QUADRA KILLS: {props.name.quadra}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>PENTA KILLS: {props.name.penta}</h6>
+                    </Col>
+                    <Col>
+                    <h6>TOTAL DAMAGE DEALT: {props.name.totalDmg}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <h6>DMG TO CHAMPIONS: {props.name.totalDmgChamp}</h6>
+                    </Col>
+                    <Col>
+                    <h6>TOTAL HEALING: {props.name.totalHeal}</h6>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+            </Container>
 
-
-
-/*dobleKills: 0
-fb: false
-fbAssist: false
-fbInhib: false
-killingSprees: 4
-largestKillingSpree: 2
-longestAlive: 193
-LargestMultiKill: 1
-penta: 0
-quadra: 0
-totalDmg: 116035
-totalDmgchamp: 44265
-totalHeal: 3478
-triple: 0*/
-    render() {
-        return (
-            <div className="ProfileDiv">
-                <Container className="Profile">
-
-                    <Row>
-                        <h4>1hithoodi Level:106</h4>
-                    </Row>
-                    <Row>
-                        <h4>Last game stats</h4>
-                    </Row>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            KILLS:  
-                        </Col>
-                        <Col>
-                            DEATHS: 
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            ASSISTS:
-                        </Col>
-                        <Col>
-                            KDA: 
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            CREEP SCORE: 
-                        </Col>
-                        <Col>
-                            LEVEL: 
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            HOW MANY TIMES CC: 1 time
-                        </Col>
-                        <Col>
-                            CC EMENYS FOR: 6s
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            GOLD EARNED: 
-                        </Col>
-                        <Col>
-                            GOLD SPENT:
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            SIGHT WARDS BOUGHT: 2
-                        </Col>
-                        <Col>
-                            VISION WARDS BOUGHT: -1
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            LONGEST TIME SPENT ALIVE: 
-                        </Col>
-                        <Col>
-                            HIGHEST KILLINGSPREE: 
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            WARDS PLACED: 
-                        </Col>
-                        <Col>
-                            TIME SPENT JUNGLING:
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            WARDS PLACED: 
-                        </Col>
-                        <Col>
-                            TIME SPENT JUNGLING:
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            WARDS PLACED: 
-                        </Col>
-                        <Col>
-                            TIME SPENT JUNGLING:
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            WARDS PLACED: 
-                        </Col>
-                        <Col>
-                            TIME SPENT JUNGLING:
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <div className="inProfiles">
-                        <Col>
-                            WARDS PLACED: 
-                        </Col>
-                        <Col>
-                            TIME SPENT JUNGLING:
-                        </Col>
-                        </div>
-                    </Row>
-                    <br/>
-                    <Row>
-                        Last one
-                    </Row>
-
-                </Container>
-
-            </div>
-        );
-    }
+        </div>
+    );
 }
 export default Profile;
