@@ -15,7 +15,7 @@ console.log("inside  profile == ", props.name)
         <div className="ProfileDiv">
             <Container className="Profile">
                 <Row>
-                    <h4>Summoner == {props.name.name}, Summoner level == {props.name.sumLevel}</h4>
+                    <h3>{props.name.name} Level {props.name.sumLevel}</h3>
                 </Row>
                 <Row>
                     <h4>Last game stats</h4>
@@ -23,12 +23,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>KILLS:</h3>
-                    <h2>{props.name.kills}</h2>
+                    <h6>KILLS: {props.name.kills}</h6>
                     </Col>
                     <Col>
-                    <h3>DEATHS:</h3>
-                    <h2>{props.name.deaths}</h2>
+                    <h6>DEATHS: {props.name.deaths}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -36,12 +34,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>ASSISTS:</h3>
-                    <h2>{props.name.assists}</h2>
+                    <h6>ASSISTS: {props.name.assists}</h6>
                     </Col>
                     <Col>
-                    <h3>KDA:</h3>
-                    <h2>{props.name.kda}</h2>
+                    <h6>KDA: {props.name.kda}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -49,12 +45,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>CS:</h3>
-                    <h2>{props.name.cs}</h2>
+                    <h6>CS: {props.name.cs}</h6>
                     </Col>
                     <Col>
-                    <h3>LEVEL:</h3>
-                    <h2>{props.name.level}</h2>
+                    <h6>LEVEL: {props.name.level}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -62,12 +56,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>TIMES CC'ed OTHERS:</h3>
-                    <h2>{props.name.amountOfCC}</h2>
+                    <h6>CC'ed OTHERS: {props.name.amountOfCC} times</h6>
                     </Col>
                     <Col>
-                    <h3>LENGTH OF CC:</h3>
-                    <h2>{props.name.lengthOfCC} seconds</h2>
+                    <h6>LENGTH OF CC: {props.name.lengthOfCC} seconds</h6>
                     </Col>
                     </div>
                 </Row>
@@ -75,12 +67,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>GOLD EARNED:</h3>
-                    <h2>{props.name.goldEarned} $</h2>
+                    <h6>GOLD EARNED: {props.name.goldEarned} $</h6>
                     </Col>
                     <Col>
-                    <h3>GOLD SPENT:</h3>
-                    <h2>{props.name.goldSpent} $</h2>
+                    <h6>GOLD SPENT: {props.name.goldSpent} $</h6>
                     </Col>
                     </div>
                 </Row>
@@ -88,12 +78,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>LARGEST MULTIKILL:</h3>
-                    <h2>{props.name.multiKill}</h2>
+                    <h6>LARGEST MULTIKILL: {props.name.multiKill}</h6>
                     </Col>
                     <Col>
-                    <h3>LARGEST KILLING SPREE:</h3>
-                    <h2>{props.name.largestKillingSpree}</h2>
+                    <h6>LARGEST KILLING SPREE: {props.name.largestKillingSpree}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -101,12 +89,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>LONGEST TIME ALIVE:</h3>
-                    <h2>{props.name.longestAlive}</h2>
+                    <h6>LONGEST TIME ALIVE: {props.name.longestAlive}</h6>
                     </Col>
                     <Col>
-                    <h3>DOUBLE KILLS:</h3>
-                    <h2>{props.name.doubleKills}</h2>
+                    <h6>DOUBLE KILLS: {props.name.doubleKills}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -114,12 +100,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>TRIPLE KILLS:</h3>
-                    <h2>{props.name.triple}</h2> 
+                    <h6>TRIPLE KILLS: {props.name.triple}</h6>
                     </Col>
                     <Col>
-                    <h3>QUADRA KILLS:</h3>
-                    <h2>{props.name.quadra}</h2>
+                    <h6>QUADRA KILLS: {props.name.quadra}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -127,12 +111,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>PENTA KILLS:</h3>
-                    <h2>{props.name.penta}</h2>
+                    <h6>PENTA KILLS: {props.name.penta}</h6>
                     </Col>
                     <Col>
-                    <h3>TOTAL DAMAGE DEALT:</h3>
-                    <h2>{props.name.totalDmg}</h2>
+                    <h6>TOTAL DAMAGE DEALT: {props.name.totalDmg}</h6>
                     </Col>
                     </div>
                 </Row>
@@ -140,12 +122,10 @@ console.log("inside  profile == ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h3>DMG TO CHAMPIONS:</h3>
-                    <h2>{props.name.totalDmgChamp}</h2> 
+                    <h6>DMG TO CHAMPIONS: {props.name.totalDmgChamp}</h6>
                     </Col>
                     <Col>
-                    <h3>TOTAL HEALING:</h3>
-                    <h2>{props.name.totalHeal}</h2>
+                    <h6>TOTAL HEALING: {props.name.totalHeal}</h6>
                     </Col>
                     </div>
                 </Row>

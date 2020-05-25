@@ -30,71 +30,71 @@ return(
         </Row>
   <Row>
     <Col>
-    <img src={urls[0]} width="80px" height="80px"/>
+    <img src={urls[0]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[0]}</p>
     </Col>
     <Col>
-    <img src={urls[1]} width="80px" height="80px"/>
+    <img src={urls[1]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[1]}</p>
     </Col>
     <Col>
-    <img src={urls[2]} width="80px" height="80px"/>
+    <img src={urls[2]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[2]}</p>
     </Col>    
     </Row>
   <Row>
   <Col>
-    <img src={urls[3]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[3]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[3]}</p>
     </Col>
     <Col>
-    <img src={urls[4]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[4]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[4]}</p>
     </Col>
     <Col>
-    <img src={urls[5]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[5]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[5]}</p>
     </Col> 
   </Row>
   <Row>
   <Col>
-    <img src={urls[6]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[6]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[6]}</p>
     </Col>
     <Col>
-    <img src={urls[7]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[7]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[7]}</p>
     </Col>
     <Col>
-    <img src={urls[8]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[8]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[8]}</p>
     </Col> 
   </Row>
   <Row>
   <Col>
-    <img src={urls[9]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[9]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[9]}</p>
     </Col>
     <Col>
-    <img src={urls[10]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[10]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[10]}</p>
     </Col>
     <Col>
-    <img src={urls[11]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[11]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[11]}</p>
     </Col> 
   </Row>
   <Row>
   <Col>
-    <img src={urls[12]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[12]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[12]}</p>
     </Col>
     <Col>
-    <img src={urls[13]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[13]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[13]}</p>
     </Col>
     <Col>
-    <img src={urls[14]} width="80px" height="80px" alt="test picture"/>
+    <img src={urls[14]} width="80px" height="80px" alt="Loading..."/>
     <p>{champs[14]}</p>
     </Col> 
   </Row>

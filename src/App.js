@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
-import SearchBar from './SearchBar';
+import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
 import Header from './Header';
 import FreeChampRotation from './FreeChampRotation'
-import testImage from './img/fredrik_eklund.jpg';
 import './App.css';
 import championsFile from './data/champions.json';
 import ChallengerLadders from './ChallengerLadders';
@@ -16,7 +14,6 @@ import Profile from './Profile';
 function App() {
 
 let textInput = React.createRef();
-let reigon = React.createRef();
 let [showFirstPage, setShowFirstPage] = useState(false);
 let [showSecondPage, setShowSecondPage] = useState(true);
 let summonerID;
@@ -32,7 +29,7 @@ let pageSwap;
 let [challengers, setChallengers] = useState('');
 let [stats, setStats] = useState('');
 let summonerName = "thisisyoloq";
-let api_key = "RGAPI-e7103e34-2665-4d90-b3dd-cbaf91ddda26";
+let api_key = "RGAPI-74c664c1-c18d-4ffc-8e73-7ef22675929a";
 let server = "euw1";
 
 useEffect(() => {
@@ -264,7 +261,6 @@ function swapPage(){
   localStorage.setItem("search", JSON.stringify(searchArr));
   localStorage.setItem("pageSwap", "false");
 
-  console.log(reigon.current.value);
   setLastSearch(lastSearch = searchArr);
 
 }
@@ -274,23 +270,17 @@ function swapPage(){
      <Header/>
   
      <div className="SearchBar">
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" expand="md">
     <Navbar.Brand>Project</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link href=".">Home page</Nav.Link>
       <Nav.Link href="https://eune.leagueoflegends.com/en-pl/">League of legends</Nav.Link>
       <Nav.Link href="https://developer.riotgames.com/apis">League API</Nav.Link>
     </Nav>
 
-    <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Control as="select" className="serverChoice" ref={reigon}>
-      <option>EUW</option>
-      <option>EUNE</option>
-      <option>NA</option>
-      <option>KR</option>
-      <option>BR</option>
-    </Form.Control>
-  </Form.Group> 
+    <Navbar.Brand>EUW</Navbar.Brand>
 
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" ref={textInput} name="search"/>
@@ -299,6 +289,7 @@ function swapPage(){
           getMatchHistory();
         }}>Search</Button>
     </Form>
+    </Navbar.Collapse>
   </Navbar>
     </div>
 
@@ -308,7 +299,6 @@ function swapPage(){
     </div>}
      
      {showFirstPage && <div className="secondPage">
-    <MasteryPoints name={topTenMastery}/>
      <Profile name={stats}/>
      <LastSearches name={lastSearch}/>
 
