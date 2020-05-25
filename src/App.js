@@ -17,8 +17,8 @@ function App() {
 
 let textInput = React.createRef();
 let reigon = React.createRef();
-const [showFirstPage, setShowFirstPage] = useState(false);
-const [showSecondPage, setShowSecondPage] = useState(true);
+let [showFirstPage, setShowFirstPage] = useState(false);
+let [showSecondPage, setShowSecondPage] = useState(true);
 let summonerID;
 let champArray = [];
 let test;
@@ -31,12 +31,8 @@ let searchArr;
 let pageSwap;
 let [challengers, setChallengers] = useState('');
 let [stats, setStats] = useState('');
-
-
-
-
 let summonerName = "thisisyoloq";
-let api_key = "RGAPI-f4a619c1-ba69-46dd-8f26-ac0f699ddde8";
+let api_key = "RGAPI-e7103e34-2665-4d90-b3dd-cbaf91ddda26";
 let server = "euw1";
 
 useEffect(() => {
@@ -50,10 +46,6 @@ useEffect(() => {
   localStorage.removeItem('pageSwap');
 }, []);
 
-
-let summonerName = "1hithoodi";
-let api_key = "RGAPI-84e0cf45-d0f6-42a9-862b-dd4e4a9b4859";
-let server = "euw1";
 
 
 const getMatchHistory = async () => {
@@ -81,6 +73,8 @@ const getMatchHistory = async () => {
   let matches = data1.matches;
   console.log(matches)
   let gameId = matches[0].gameId;
+  let sumName = data.name;
+  let sumLevel = data.summonerLevel;
  
   //fetches specific match history
   const response3 = await fetch
@@ -101,12 +95,12 @@ const getMatchHistory = async () => {
   let stats = data2.participants[playerPosition].stats;
   console.log(stats);
   let kda = (stats.assists + stats.kills) / stats.deaths;
-  let statsObj = {kills:stats.kills, deaths: stats.deaths, assists:stats.assists, kda:kda, fb:stats.firstBloodKill, fbAssist:stats.firstBloodAssist, level:stats.champLevel,
+  let statsObj = {kills:stats.kills, deaths: stats.deaths, assists:stats.assists, kda:kda, fbKill:stats.firstBloodKill, fbAssist:stats.firstBloodAssist, level:stats.champLevel,
       goldEarned:stats.goldEarned, goldSpent:stats.goldSpent, fbInhib:stats.firstInhibitorKill, longestAlive:stats.longestTimeSpentLiving, totalDmg:stats.totalDamageDealt, 
-      totalDmgchamp:stats.totalDamageDealtToChampions, amountOfCC:stats.timeCCingOthers, lengthOfCC:stats.totalTimeCrowdControlDealt, totalHeal:stats.totalHeal, 
-      dobleKills:stats.doubleKills, triple:stats.tripleKills, quadra:stats.quadraKills, penta:stats.pentaKills, sightWardsBought:stats.sightWardsBoughtInGame, 
+      totalDmgChamp:stats.totalDamageDealtToChampions, amountOfCC:stats.timeCCingOthers, lengthOfCC:stats.totalTimeCrowdControlDealt, totalHeal:stats.totalHeal, 
+      doubleKills:stats.doubleKills, triple:stats.tripleKills, quadra:stats.quadraKills, penta:stats.pentaKills, sightWardsBought:stats.sightWardsBoughtInGame, 
       killingSprees:stats.killingSprees, multiKill:stats.largestMultiKill, largestKillingSpree:stats.largestKillingSpree, cs:stats.totalMinionsKilled, 
-      visionWardsBought:stats.visionWardsBoughtInGame};
+      visionWardsBought:stats.visionWardsBoughtInGame, name:sumName, sumLevel:sumLevel};
   console.log(statsObj);
   setStats(stats = statsObj);
 
@@ -148,8 +142,6 @@ const getSummonerFromName = async (champMap) => {
 
   //fetch('https://cors-anywhere.herokuapp.com/https://"+server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+summonerName+"?api_key="+api_key')
   //let accountID = data.accountId;
-
-
   /*
   //fetches match history information  ==>> change endindex to fetch more games
   const response2 = await fetch
@@ -310,20 +302,15 @@ function swapPage(){
   </Navbar>
     </div>
 
-
      {showSecondPage && <div className="champRotationChallengerLadder">
      <FreeChampRotation name={champs}/>
      <ChallengerLadders name={challengers}/>
-       </div>}
+    </div>}
      
      {showFirstPage && <div className="secondPage">
-      <MasteryPoints name={topTenMastery}/>
-     
+    <MasteryPoints name={topTenMastery}/>
      <Profile name={stats}/>
-
      <LastSearches name={lastSearch}/>
-
-     <LastSearches />
 
        </div>}
     </div>
