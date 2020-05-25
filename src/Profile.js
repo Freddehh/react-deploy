@@ -9,8 +9,7 @@ import { render } from '@testing-library/react';
 
 //25 saker
 function Profile(props) {
-
-console.log("inside  profile == ", props.name)
+console.log("inside profile === ", props.name)
     return (
         <div className="ProfileDiv">
             <Container className="Profile">

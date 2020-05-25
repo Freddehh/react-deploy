@@ -20,22 +20,24 @@
 }
 
 .ChallengerLadders{
+  background-color: cyan;
   display: flex;
   flex-direction: column;
   align-items: center; 
 }
 
 .ChallengerLaddersDiv{
+  background-color: red;
   border: 2px solid black;
   height: 600px;
   width: 600px;
-  background-color: cornsilk;
-  margin-left: 500px;
 }
 
 .champRotationChallengerLadder{
+  background-color: yellow;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .secondPage{
@@ -88,3 +90,67 @@
   flex-direction: row;
   white-space: nowrap;
 }
+
+
+/* MEDIA QUERIES FOR TABLET */
+@media screen and (max-width:768px) and (min-width:376px){
+  .App{
+    background-color: chartreuse;
+  }
+  
+  .Header{
+    background-color: cornflowerblue;
+  }
+
+  .SearchBar{
+    background-color: chartreuse;
+  }
+
+  .champRotationChallengerLadder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+  }
+
+}
+
+/* MEDIA QUERIES FOR PHONES */
+@media screen and (max-width:375px){
+  .App{
+    background-color: tan;
+  }
+  
+  .Header{
+    background-color: cornflowerblue;
+  }
+
+  .SearchBar{
+    background-color: chartreuse;
+  }
+
+  .champRotationChallengerLadder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: gold;
+  }
+
+  .champRotation{
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ChampRotation{
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+
+
