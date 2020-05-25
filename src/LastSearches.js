@@ -6,6 +6,7 @@ import { render } from '@testing-library/react';
 
 
 function LastSearches(props){
+    console.log("INSIDE LAST SEARCHES === ", props.name)
     return (
         <div className="LastSearchesDiv">
             <Container className="LastSearches">
