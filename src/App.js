@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import SearchBar from './SearchBar';
+import React, {useEffect, useState} from 'react';
+import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
 import Header from './Header';
 import FreeChampRotation from './FreeChampRotation'
-import testImage from './img/fredrik_eklund.jpg';
 import './App.css';
 import championsFile from './data/champions.json';
 import ChallengerLadders from './ChallengerLadders';
@@ -85,6 +83,7 @@ function App() {
         console.log(i);
       }
       console.log(arrayOfPlayers[i].player.accountId)
+
     }
     console.log(arrayOfPlayers);
     let stats = data2.participants[playerPosition].stats;
@@ -186,55 +185,49 @@ function App() {
 
     localStorage.setItem("search", JSON.stringify(searchArr));
     localStorage.setItem("pageSwap", "false");
-
-    console.log(reigon.current.value);
-    setLastSearch(lastSearch = searchArr);
+    
+  setLastSearch(lastSearch = searchArr);
 
   }
 
   return (
     <div className="App">
-      <Header className="Header" />
+     <Header/>
+  
+     <div className="SearchBar">
+    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar.Brand>Project</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href=".">Home page</Nav.Link>
+      <Nav.Link href="https://eune.leagueoflegends.com/en-pl/">League of legends</Nav.Link>
+      <Nav.Link href="https://developer.riotgames.com/apis">League API</Nav.Link>
+    </Nav>
 
-      <div className="SearchBar">
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand>Project</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href=".">Home page</Nav.Link>
-            <Nav.Link href="https://eune.leagueoflegends.com/en-pl/">League of legends</Nav.Link>
-            <Nav.Link href="https://developer.riotgames.com/apis">League API</Nav.Link>
-          </Nav>
+    <Navbar.Brand>EUW</Navbar.Brand>
 
-          <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Control as="select" className="serverChoice" ref={reigon}>
-              <option>EUW</option>
-              <option>EUNE</option>
-              <option>NA</option>
-              <option>KR</option>
-              <option>BR</option>
-            </Form.Control>
-          </Form.Group>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" ref={textInput} name="search"/>
+      <Button variant="outline-info" onClick={() => {
+          swapPage();
+          getMatchHistory();
+        }}>Search</Button>
+    </Form>
+    </Navbar.Collapse>
+  </Navbar>
+    </div>
 
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" ref={textInput} name="search" />
-            <Button variant="outline-info" onClick={() => {
-              swapPage();
-              getMatchHistory();
-            }}>Search</Button>
-          </Form>
-        </Navbar>
-      </div>
+     {showSecondPage && <div className="champRotationChallengerLadder">
+     <FreeChampRotation name={champs}/>
+     <ChallengerLadders name={challengers}/>
+    </div>}
+     
+     {showFirstPage && <div className="secondPage">
+     <Profile name={stats}/>
+     <LastSearches name={lastSearch}/>
 
-      {showSecondPage && <div className="champRotationChallengerLadder">
-        <FreeChampRotation name={champs} />
-        <ChallengerLadders name={challengers} />
-      </div>}
-
-      {showFirstPage && <div className="secondPage">
-        <Profile name={stats} />
-        <LastSearches name={lastSearch} />
-
-      </div>}
+       </div>}
     </div>
   );
 }

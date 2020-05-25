@@ -5,10 +5,9 @@
 
 .champRotation{
   border: 2px solid black;
-  height: 600px;
-  width: 400px;
+  height: 700px;
+  width: 375px;
   background-color: cornsilk;
-  margin-left: 40px;
 }
 
 .serverChoice{
@@ -29,8 +28,10 @@
 .ChallengerLaddersDiv{
   background-color: red;
   border: 2px solid black;
-  height: 600px;
+  height: 700px;
   width: 600px;
+  justify-content: space-evenly;
+
 }
 
 .champRotationChallengerLadder{
@@ -43,12 +44,13 @@
 .secondPage{
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .MasteryPointsDiv{
   border: 2px solid black;
-  height: 600px;
-  width: 400px;
+  height: 700px;
+  width: 375px;
   background-color: cornsilk;
 }
 
@@ -60,8 +62,8 @@
 
 .LastSearchesDiv{
   border: 2px solid black;
-  height: 600px;
-  width: 200px;
+  height: 700px;
+  width: 375px;
   background-color: cornsilk;
 }
 
@@ -76,6 +78,7 @@
   height: 700px;
   width: 700px;
   background-color: cornsilk;
+  white-space: nowrap;
 }
 
 .Profile{
@@ -83,6 +86,7 @@
   flex-direction: column;
   align-items: center;
   width: 700px; 
+  white-space: nowrap;
 }
 
 .inProfiles{
@@ -90,7 +94,6 @@
   flex-direction: row;
   white-space: nowrap;
 }
-
 
 /* MEDIA QUERIES FOR TABLET */
 @media screen and (max-width:768px) and (min-width:376px){
@@ -110,7 +113,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     background-color: blue;
+  }
+
+  .ChallengerLaddersDiv{
+    height: 700px;
+    width: 400px;
+  }
+
+  .secondPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ProfileDiv{
+    height: 700px;
+    width: 500px;
+  }
+  
+  .Profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px; 
   }
 
 }
@@ -150,7 +177,28 @@
     align-items: center;
   }
 
+  .ChallengerLaddersDiv{
+    height: 700px;
+    width: 375px;
+  }
+
+  .secondPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ProfileDiv{
+    height: 700px;
+    width: 375px;
+  }
+  
+  .Profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 375px; 
+  }
+
 }
-
-
 
