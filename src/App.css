@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: coral;
+  height: 100%;
 }
 
 .champRotation{
@@ -19,23 +20,18 @@
 }
 
 .ChallengerLadders{
-  background-color: cyan;
   display: flex;
   flex-direction: column;
   align-items: center; 
 }
 
 .ChallengerLaddersDiv{
-  background-color: red;
   border: 2px solid black;
-  height: 700px;
-  width: 600px;
   justify-content: space-evenly;
-
+  background-color: cornsilk;
 }
 
 .champRotationChallengerLadder{
-  background-color: yellow;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -95,6 +91,7 @@
   white-space: nowrap;
 }
 
+
 /* MEDIA QUERIES FOR TABLET */
 @media screen and (max-width:768px) and (min-width:376px){
   .App{
@@ -107,6 +104,13 @@
 
   .SearchBar{
     background-color: chartreuse;
+  }
+
+  .LastSearchesDiv{
+    border: 2px solid black;
+    height: 700px;
+    width: 500px;
+    background-color: cornsilk;
   }
 
   .champRotationChallengerLadder{
@@ -178,8 +182,6 @@
   }
 
   .ChallengerLaddersDiv{
-    height: 700px;
-    width: 375px;
   }
 
   .secondPage{

@@ -14,7 +14,10 @@ console.log("inside profile === ", props.name)
         <div className="ProfileDiv">
             <Container className="Profile">
                 <Row>
-                    <h3>{props.name.name} Level {props.name.sumLevel}</h3>
+                    <h4>Summoner: {props.name.name}</h4>
+                </Row>
+                <Row>
+                    <h4>Level: {props.name.sumLevel}</h4>
                 </Row>
                 <Row>
                     <h4>Last game stats</h4>
@@ -22,21 +25,10 @@ console.log("inside profile === ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h6>KILLS: {props.name.kills}</h6>
+                    <p>KILLS: {props.name.kills}</p>
                     </Col>
                     <Col>
-                    <h6>DEATHS: {props.name.deaths}</h6>
-                    </Col>
-                    </div>
-                </Row>
-                <br/>
-                <Row>
-                    <div className="inProfiles">
-                    <Col>
-                    <h6>ASSISTS: {props.name.assists}</h6>
-                    </Col>
-                    <Col>
-                    <h6>KDA: {props.name.kda}</h6>
+                    <p>DEATHS: {props.name.deaths}</p>
                     </Col>
                     </div>
                 </Row>
@@ -44,21 +36,10 @@ console.log("inside profile === ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h6>CS: {props.name.cs}</h6>
+                    <p>ASSISTS: {props.name.assists}</p>
                     </Col>
                     <Col>
-                    <h6>LEVEL: {props.name.level}</h6>
-                    </Col>
-                    </div>
-                </Row>
-                <br/>
-                <Row>
-                    <div className="inProfiles">
-                    <Col>
-                    <h6>CC'ed OTHERS: {props.name.amountOfCC} times</h6>
-                    </Col>
-                    <Col>
-                    <h6>LENGTH OF CC: {props.name.lengthOfCC} seconds</h6>
+                    <p>KDA: {props.name.kda}</p>
                     </Col>
                     </div>
                 </Row>
@@ -66,21 +47,10 @@ console.log("inside profile === ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h6>GOLD EARNED: {props.name.goldEarned} $</h6>
+                    <p>CS: {props.name.cs}</p>
                     </Col>
                     <Col>
-                    <h6>GOLD SPENT: {props.name.goldSpent} $</h6>
-                    </Col>
-                    </div>
-                </Row>
-                <br/>
-                <Row>
-                    <div className="inProfiles">
-                    <Col>
-                    <h6>LARGEST MULTIKILL: {props.name.multiKill}</h6>
-                    </Col>
-                    <Col>
-                    <h6>LARGEST KILLING SPREE: {props.name.largestKillingSpree}</h6>
+                    <p>LEVEL: {props.name.level}</p>
                     </Col>
                     </div>
                 </Row>
@@ -88,21 +58,10 @@ console.log("inside profile === ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h6>LONGEST TIME ALIVE: {props.name.longestAlive}</h6>
+                    <p>CC'ed OTHERS: {props.name.amountOfCC}</p>
                     </Col>
                     <Col>
-                    <h6>DOUBLE KILLS: {props.name.doubleKills}</h6>
-                    </Col>
-                    </div>
-                </Row>
-                <br/>
-                <Row>
-                    <div className="inProfiles">
-                    <Col>
-                    <h6>TRIPLE KILLS: {props.name.triple}</h6>
-                    </Col>
-                    <Col>
-                    <h6>QUADRA KILLS: {props.name.quadra}</h6>
+                    <p>LENGTH OF CC: {props.name.lengthOfCC}</p>
                     </Col>
                     </div>
                 </Row>
@@ -110,10 +69,10 @@ console.log("inside profile === ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h6>PENTA KILLS: {props.name.penta}</h6>
+                    <p>GOLD EARNED: {props.name.goldEarned}</p>
                     </Col>
                     <Col>
-                    <h6>TOTAL DAMAGE DEALT: {props.name.totalDmg}</h6>
+                    <p>GOLD SPENT: {props.name.goldSpent}</p>
                     </Col>
                     </div>
                 </Row>
@@ -121,10 +80,43 @@ console.log("inside profile === ", props.name)
                 <Row>
                     <div className="inProfiles">
                     <Col>
-                    <h6>DMG TO CHAMPIONS: {props.name.totalDmgChamp}</h6>
+                    <p>LARGEST MULTIKILL: {props.name.multiKill}</p>
                     </Col>
                     <Col>
-                    <h6>TOTAL HEALING: {props.name.totalHeal}</h6>
+                    <p>KILLING SPREE: {props.name.largestKillingSpree}</p>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <p>LONGEST TIME ALIVE: {props.name.longestAlive}</p>
+                    </Col>
+                    <Col>
+                    <p>DOUBLE KILLS: {props.name.doubleKills}</p>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <p>PENTA KILLS: {props.name.penta}</p>
+                    </Col>
+                    <Col>
+                    <p>TOTAL DMG: {props.name.totalDmg}</p>
+                    </Col>
+                    </div>
+                </Row>
+                <br/>
+                <Row>
+                    <div className="inProfiles">
+                    <Col>
+                    <p>DMG TO CHAMPS: {props.name.totalDmgChamp}</p>
+                    </Col>
+                    <Col>
+                    <p>TOTAL HEAL: {props.name.totalHeal}</p>
                     </Col>
                     </div>
                 </Row>
