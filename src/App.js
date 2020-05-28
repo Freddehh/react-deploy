@@ -27,7 +27,7 @@ function App() {
   let [challengers, setChallengers] = useState('');
   let [stats, setStats] = useState('');
   let summonerName = "thisisyoloq";
-  let api_key = "RGAPI-8fc4d6e4-19c2-47a1-bd5a-30820478538e";
+  let api_key = "RGAPI-e3399de5-14bc-4c75-9781-a0d5bd87f802";
   let server = "euw1";
 
   useEffect(() => {
@@ -44,15 +44,19 @@ function App() {
   const getMatchHistory = async () => {
     let summonerSearched = textInput.current.value;
     console.log(summonerSearched)
+    try{
     const response = await fetch
       ("https://cors-anywhere.herokuapp.com/https://" + server + ".api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerSearched + "?api_key=" + api_key);
     const data = await response.json();
-
-    fetch("https://cors-anywhere.herokuapp.com/https://" + server + ".api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerSearched + "?api_key=" + api_key)
+    
+  
+/*
+    fetch("https://cors-anywhere.herokuapp.com/https://" + server + ".api.riotgames.com/lol/summoner/v4/summoners/by-name/ölölölölölölöölölölölölölölölölölölö?api_key=" + api_key)
       .then(res => res.json())
       .then(id => {
         console.log(1000, id);
-      }).catch(error => console.error())
+      }).catch(error => console.log("hejhejhej", error))
+      */
 
     console.log('sök === ', summonerSearched)
 
@@ -68,6 +72,7 @@ function App() {
     let gameId = matches[0].gameId;
     let sumName = data.name;
     let sumLevel = data.summonerLevel;
+    
 
     //fetches specific match history
     const response3 = await fetch
@@ -99,6 +104,11 @@ function App() {
     };
     console.log(statsObj);
     setStats(stats = statsObj);
+
+  }catch(error){
+    alert("USER DOES NOT EXIST, TRY AGAIN!k687u")
+    console.log("ERROR =", error)
+  }
   }
 
   //fetches current leaderboards for given server --> todo = dynamic serverselection
