@@ -27,7 +27,7 @@ function App() {
   let [challengers, setChallengers] = useState('');
   let [stats, setStats] = useState('');
   let summonerName = "thisisyoloq";
-  let api_key = "RGAPI-e3399de5-14bc-4c75-9781-a0d5bd87f802";
+  let api_key = "RGAPI-9806f34f-6a89-461f-858f-46bf804bf0e9";
   let server = "euw1";
 
   useEffect(() => {
