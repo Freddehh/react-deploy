@@ -5,8 +5,9 @@ To accomplish this we have used Riot API. (We have not yet gotten any developmen
 to be refreshed every 24hours)
 
 To build the site we chose React over Angular and Vue, because of our research which implied that 
-React is the most popular framework. Because of this it was easy for us to find lots of documentation 
-and find answers online. 
+React is the most popular framework. In Stack Overflow's 2020 developer research, React made it to second place 
+after regular J-query of what most people use. https://insights.stackoverflow.com/survey/2020#technology-web-frameworks-all-respondents2 
+Because of this it was easy for us to find lots of documentation and find answers online. 
 
 Before you can run our program, you need to run 2 'npm install'
 1: npm install http-proxy-middleware --save
