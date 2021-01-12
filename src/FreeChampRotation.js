@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -19,6 +20,7 @@ function FreeChampRotation(props) {
   }
   console.log(champs);
   console.log(urls);
+
 
   return (
     <div className="champRotation">
@@ -100,6 +102,7 @@ function FreeChampRotation(props) {
         </Row>
       </Container>
     </div>
+
   );
 }
 

@@ -32,6 +32,7 @@ function ChallengerLadders(props) {
     console.log(search);
   }
 
+
   return (
     <div className="ChallengerLaddersDiv">
       <Row>
@@ -111,6 +112,7 @@ function ChallengerLadders(props) {
               LOSSES: {losses[9]}
             </h6>
           </Row>
+
         </div>
       </Container>
     </div>
