@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import './App.css';
+
+import React, { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./App.css";
 
 function FreeChampRotation(props) {
-
-  //namn lp win lose 
-  //console.log(55555555, props.name[0]);
   let champs = [];
   let urls = [];
   for (let i = 0; i < props.name.length; i++) {
-    let string = 'http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/' + props.name[i] + '.png?fbclid=IwAR3Js5deXHJL7jP2bV-jBydR1JfKBZ9fnWd_ilpi_hoAmcsw2xiEHxKMB4A';
-    string = string.replace(/\s+/g, '');
+    let string =
+      "http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/" +
+      props.name[i] +
+      ".png?fbclid=IwAR3Js5deXHJL7jP2bV-jBydR1JfKBZ9fnWd_ilpi_hoAmcsw2xiEHxKMB4A";
+    string = string.replace(/\s+/g, "");
     console.log(string);
     urls.push(string);
     champs.push(props.name[i]);
   }
   console.log(champs);
   console.log(urls);
+
 
   return (
     <div className="champRotation">
@@ -99,7 +101,6 @@ function FreeChampRotation(props) {
           </Col>
         </Row>
       </Container>
-
     </div>
 
   );
