@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import testImage from './img/lol.jpg';
+import testImage from './img/fredrik_eklund.jpg';
 import './App.css';
 
 
@@ -25,6 +25,5 @@ function Header() {
       </Container>
     </div>
   );
-
 }
 export default Header;

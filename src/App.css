@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   background-color: coral;
-  height: 1090px;
 }
 
 .champRotation{
@@ -9,7 +8,10 @@
   height: 700px;
   width: 375px;
   background-color: cornsilk;
-  margin-top: 20px;
+}
+
+.serverChoice{
+  margin-top: 16px;
 }
 
 .h2FreeChamp{
@@ -17,19 +19,22 @@
 }
 
 .ChallengerLadders{
+  background-color: cyan;
   display: flex;
   flex-direction: column;
   align-items: center; 
 }
 
 .ChallengerLaddersDiv{
+  background-color: red;
   border: 2px solid black;
+  height: 700px;
+  width: 600px;
   justify-content: space-evenly;
-  background-color: cornsilk;
-  margin-top: 20px;
 }
 
 .champRotationChallengerLadder{
+  background-color: yellow;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -41,12 +46,24 @@
   justify-content: space-evenly;
 }
 
+.MasteryPointsDiv{
+  border: 2px solid black;
+  height: 700px;
+  width: 375px;
+  background-color: cornsilk;
+}
+
+.MasteryPoints{
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
 .LastSearchesDiv{
   border: 2px solid black;
   height: 700px;
   width: 375px;
   background-color: cornsilk;
-  margin-top: 20px;
 }
 
 .LastSearches{
@@ -61,7 +78,6 @@
   width: 700px;
   background-color: cornsilk;
   white-space: nowrap;
-  margin-top: 20px;
 }
 
 .Profile{
@@ -78,20 +94,18 @@
   white-space: nowrap;
 }
 
-
 /* MEDIA QUERIES FOR TABLET */
 @media screen and (max-width:768px) and (min-width:376px){
-
   .App{
-    height: unset;
+    background-color: chartreuse;
+  }
+  
+  .Header{
+    background-color: cornflowerblue;
   }
 
-  .LastSearchesDiv{
-    border: 2px solid black;
-    height: 700px;
-    width: 500px;
-    background-color: cornsilk;
-    margin-top: 10px;
+  .SearchBar{
+    background-color: chartreuse;
   }
 
   .champRotationChallengerLadder{
@@ -99,20 +113,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-  }
-
-  .champRotation{
-    width: 400px;
+    background-color: blue;
   }
 
   .ChallengerLaddersDiv{
-    margin-top: 10px;
     height: 700px;
     width: 400px;
-  }
-
-  .ChallengerText{
-    font-size: 10pt;
   }
 
   .secondPage{
@@ -137,26 +143,43 @@
 
 /* MEDIA QUERIES FOR PHONES */
 @media screen and (max-width:375px){
+  .App{
+    background-color: tan;
+  }
+  
+  .Header{
+    background-color: cornflowerblue;
+  }
 
+  .SearchBar{
+    background-color: chartreuse;
+  }
 
   .champRotationChallengerLadder{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: gold;
   }
 
   .champRotation{
+    background-color: greenyellow;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .ChampRotation{
+    background-color: goldenrod;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  .ChallengerLaddersDiv{
+    height: 700px;
+    width: 375px;
+  }
 
   .secondPage{
     display: flex;
@@ -177,4 +200,3 @@
   }
 
 }
-

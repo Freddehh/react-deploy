@@ -1,7 +1,16 @@
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import Header from "./Header";
+import FreeChampRotation from "./FreeChampRotation";
+import "./App.css";
+import championsFile from "./data/champions.json";
+import ChallengerLadders from "./ChallengerLadders";
+import MasteryPoints from "./MasteryPoints";
+import LastSearches from "./LastSearches";
+import Profile from "./Profile";
 
 function App() {
   let textInput = React.createRef();
-
   let [showFirstPage, setShowFirstPage] = useState(false);
   let [showSecondPage, setShowSecondPage] = useState(true);
   let summonerID;
@@ -26,7 +35,6 @@ function App() {
     freeRotation = getFreeRotation(champMap); //15 free-to-play champs
     let rank10 = getLeaderboards(); //10highest ranked players
     localStorage.removeItem("pageSwap");
-
   }, []);
 
   const getMatchHistory = async () => {
@@ -57,7 +65,6 @@ function App() {
 
     console.log("sök === ", summonerSearched);
 
-
     let accountID = data.accountId;
 
     //fetches match history information  ==>> change endindex to fetch more games
@@ -86,7 +93,6 @@ function App() {
         "?api_key=" +
         api_key
     );
-
     const data2 = await response3.json();
     console.log(data2);
     let arrayOfPlayers = data2.participantIdentities;
@@ -98,7 +104,6 @@ function App() {
         console.log(i);
       }
       console.log(arrayOfPlayers[i].player.accountId);
-
     }
     console.log(arrayOfPlayers);
     let stats = data2.participants[playerPosition].stats;
@@ -197,7 +202,6 @@ function App() {
         api_key
     );
     const leaderboards = await response.json();
-
     let arr2 = [];
 
     for (let i = 0; i < 10; i++) {
@@ -289,7 +293,6 @@ function App() {
 
     setLastSearch((lastSearch = searchArr));
   }
-
 
   return (
     <div className="App">
