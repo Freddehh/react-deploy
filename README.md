@@ -7,7 +7,8 @@ to be refreshed every 24hours)
 To build the site we chose React over Angular and Vue, because of our research which implied that 
 React is the most popular framework. In Stack Overflow's 2020 developer research, React made it to second place 
 after regular J-query of what most people use. https://insights.stackoverflow.com/survey/2020#technology-web-frameworks-all-respondents2 
-Because of this it was easy for us to find lots of documentation and find answers online. 
+Another reason to why we choose React is that there's a large community of developers that are making React better as it’s an open-source library and coders from around the world are helping people learn the technology in different ways. https://brainhub.eu/blog/reasons-to-choose-react-for-frontend-development/ 
+Also, if you search with Google for the different libraries followed by "tutorial", React has the most hits by far.  
 
 Before you can run our program, you need to run 2 'npm install'
 1: npm install http-proxy-middleware --save
